@@ -1,0 +1,16 @@
+{
+  "name": "asomasow",
+  "version": "1.0.0",
+  "description": "Asomasow 3x Emeresker 3x",
+  "main": "index.ts",
+  "scripts": {
+    "start": "tsx index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^20.8.3",
+    "tsx": "^3.13.0"
+  }
+}
