@@ -1,2 +1,2 @@
-console.log("username: ", process.env.USERNAME);
-console.log("public url: ", process.env.PUBLIC_URL);
+console.log("variable: ", process.env.CUSTOM_VAR);
+console.log("secret: ", process.env.CUSTOM_SECRET);
