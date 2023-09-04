@@ -3,18 +3,33 @@ name: Env Test
 on:
   workflow_dispatch:
 
+env:
+  MY_VAR: ${{ vars.MY_VAR }}
+  MY_SECRET: ${{ secrets.MY_SECRET }}
+
 jobs:
-  env-test:
+  default:
     runs-on: ubuntu-latest
-    environment: development
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-      - name: Install dependencies
-        run: npm ci
-      - name: Log Environment Variables
-        run: env
-      - name: Run Script
-        run: npm start
+      - run: echo "${{ vars.MY_VAR }}"
+      - run: echo "${{ secrets.MY_SECRET }}"
+      - run: echo "${{ env.MY_VAR }}"
+      - run: echo "${{ env.MY_SECRET }}"
+
+  staging:
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - run: echo "${{ vars.MY_VAR }}"
+      - run: echo "${{ secrets.MY_SECRET }}"
+      - run: echo "${{ env.MY_VAR }}"
+      - run: echo "${{ env.MY_SECRET }}"
+
+  production:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - run: echo "${{ vars.MY_VAR }}"
+      - run: echo "${{ secrets.MY_SECRET }}"
+      - run: echo "${{ env.MY_VAR }}"
+      - run: echo "${{ env.MY_SECRET }}"
