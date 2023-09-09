@@ -1,0 +1,11 @@
+name: Cron Test
+
+on:
+  schedule:
+    - cron: "15/10 10 * * *"
+
+jobs:
+  cron-test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Cron running at $(date)"
