@@ -1,16 +1,18 @@
 {
   "name": "asomasow",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Asomasow 3x Emeresker 3x",
   "main": "index.ts",
   "scripts": {
-    "start": "tsx index.ts"
+    "start": "tsx index.ts",
+    "release": "bumpp"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@types/node": "^20.8.3",
+    "bumpp": "^9.4.0",
     "tsx": "^3.13.0"
   }
 }
