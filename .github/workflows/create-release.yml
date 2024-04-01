@@ -1,0 +1,15 @@
+name: Out of this World
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  auto-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/release
+        with:
+          version: ${{ github.ref }}

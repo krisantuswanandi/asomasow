@@ -1,0 +1,12 @@
+name: Release
+description: Create a release
+author: Me
+
+inputs:
+  version:
+    description: Version
+    required: true
+
+runs:
+  using: node20
+  main: release.js
