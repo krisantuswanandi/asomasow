@@ -1,9 +1,7 @@
 name: Upload
 
 on:
-  push:
-    tags:
-      - "v*"
+  workflow_dispatch:
 
 jobs:
   auto-commit:
