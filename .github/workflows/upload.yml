@@ -1,0 +1,22 @@
+name: Out of this World
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  auto-commit:
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "20"
+      - run: npm install @actions/core @actions/github
+      - uses: ./.github/actions/upload
+        with:
+          release: "149260666"
+          path: "./file.txt"
+          token: ${{ secrets.MY_TOKEN }}
