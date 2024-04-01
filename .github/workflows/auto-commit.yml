@@ -12,6 +12,8 @@ jobs:
       - uses: actions/checkout@v3
       - run: |
           echo $(date +%Y-%m-%d) >> file.txt
+          git config --global user.email "admin@santus.dev"
+          git config --global user.name "admin"
           git add --all
           git commit -m "test commit"
           git push
