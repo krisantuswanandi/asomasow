@@ -10,9 +10,8 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v3
-      - run: echo $(date +%Y-%m-%d) >> file.txt
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: new commit
-          commit_user_name: Krisantus Wanandi
-          commit_user_email: krisantus.wanandi@gmail.com
+      - run: |
+          echo $(date +%Y-%m-%d) >> file.txt
+          git add --all
+          git commit -m "test commit"
+          git push
