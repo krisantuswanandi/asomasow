@@ -1,4 +1,4 @@
-name: Out of this World
+name: Release
 
 on:
   push:
