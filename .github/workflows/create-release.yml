@@ -8,6 +8,7 @@ on:
 jobs:
   auto-commit:
     runs-on: ubuntu-latest
+    environment: staging
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v2
@@ -17,3 +18,4 @@ jobs:
       - uses: ./.github/actions/release
         with:
           version: ${{ github.ref }}
+          token: ${{ secrets.MY_TOKEN }}

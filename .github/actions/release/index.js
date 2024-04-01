@@ -12,6 +12,17 @@ async function run() {
     core.info(
       `The event payload: ${JSON.stringify(github.context.payload, null, 2)}`
     );
+
+    const token = core.getInput("token", { required: true });
+    const octokit = github.getOctokit(token);
+
+    await octokit.rest.repos.createRelease({
+      owner: "krisantuswanandi",
+      repo: "asomasow",
+      tag_name: version,
+      name: version,
+      body: "This is a release created by the GitHub Action",
+    });
   } catch (error) {
     core.setFailed(error.message);
   }

@@ -6,6 +6,9 @@ inputs:
   version:
     description: Version
     required: true
+  token:
+    description: Token
+    required: true
 
 runs:
   using: node20
