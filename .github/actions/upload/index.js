@@ -5,7 +5,7 @@ const fs = require("fs");
 async function run() {
   try {
     const path = core.getInput("path", { required: true });
-    core.info(`Path: ${version}!`);
+    core.info(`Path: ${path}!`);
 
     const time = new Date().toTimeString();
     core.setOutput("time", time);
