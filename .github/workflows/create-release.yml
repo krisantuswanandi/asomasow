@@ -16,6 +16,9 @@ jobs:
           node-version: "20"
       - run: npm install @actions/core @actions/github
       - uses: ./.github/actions/release
+        id: release
         with:
           version: ${{ github.ref }}
           token: ${{ secrets.MY_TOKEN }}
+      - run: echo ${{ steps.release.outputs.id }}
+      - run: echo ${{ steps.release.outputs.upload_url }}

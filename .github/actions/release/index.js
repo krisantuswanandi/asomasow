@@ -16,13 +16,16 @@ async function run() {
     const token = core.getInput("token", { required: true });
     const octokit = github.getOctokit(token);
 
-    await octokit.rest.repos.createRelease({
+    const result = await octokit.rest.repos.createRelease({
       owner: "krisantuswanandi",
       repo: "asomasow",
       tag_name: version,
       name: version,
       body: "This is a release created by the GitHub Action",
     });
+
+    core.setOutput("id", result.data.id);
+    core.setOutput("upload_url", result.data.upload_url);
   } catch (error) {
     core.setFailed(error.message);
   }
