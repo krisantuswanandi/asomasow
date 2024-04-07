@@ -8,7 +8,6 @@ on:
 jobs:
   auto-commit:
     runs-on: ubuntu-latest
-    environment: staging
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v2
@@ -19,6 +18,6 @@ jobs:
         id: release
         with:
           version: ${{ github.ref }}
-          token: ${{ secrets.MY_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
       - run: echo ${{ steps.release.outputs.id }}
       - run: echo ${{ steps.release.outputs.upload_url }}
