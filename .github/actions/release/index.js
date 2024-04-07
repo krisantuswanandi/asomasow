@@ -3,7 +3,8 @@ const github = require("@actions/github");
 
 async function run() {
   try {
-    const version = core.getInput("version", { required: true });
+    const ref = core.getInput("tag", { required: true });
+    const version = ref.replace("refs/tags/", "");
     core.info(`Version: ${version}!`);
 
     const time = new Date().toTimeString();

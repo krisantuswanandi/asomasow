@@ -3,8 +3,8 @@ description: Create a release
 author: Me
 
 inputs:
-  version:
-    description: Version
+  tag:
+    description: Tag
     required: true
   token:
     description: Token
